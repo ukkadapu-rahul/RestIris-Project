@@ -1,0 +1,49 @@
+{
+  "name": "RestIris",
+  "version": "1.0.0",
+  "description": "RestIris: Relax your eyes - 20-20-20 Eye Strain Timer",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "author": "Rahul77",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./assets/icon",
+        "win32metadata": {
+          "CompanyName": "RestIris",
+          "ProductName": "RestIris"
+        }
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "RestIris",
+            "authors": "RestIris Team",
+            "setupIcon": "./assets/icon.ico",
+            "noMsi": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true
+          }
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.1",
+    "@electron-forge/maker-deb": "^6.4.1",
+    "@electron-forge/maker-rpm": "^6.4.1",
+    "@electron-forge/maker-squirrel": "^6.4.1",
+    "@electron-forge/maker-zip": "^6.4.1",
+    "electron": "^30.0.6"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  }
+}

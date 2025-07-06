@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #F2F0EF;
+    color: #733E24;
+    user-select: none;
+    overflow: hidden;
+    height: 200px;
+    width: 300px;
+    -webkit-app-region: drag; /* Make entire window draggable */
+    -webkit-user-select: none; /* Prevent text selection */
+}
+
+.window-controls {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+    z-index: 1000;
+    -webkit-app-region: no-drag; /* Make controls clickable */
+}
+
+.control-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s;
+    -webkit-app-region: no-drag;
+}
+
+.minimize {
+    background: #245F73;
+    color: #F2F0EF;
+}
+
+.close {
+    background: #245F73;
+    color: #F2F0EF;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.container {
+    padding: 25px 20px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.timer-display {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#timer-text {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+#timer-label {
+    font-size: 12px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.endless-option {
+    text-align: center;
+    margin-bottom: 15px;
+    -webkit-app-region: no-drag;
+}
+
+.endless-option input[type="checkbox"] {
+    accent-color: #988686;
+    transform: scale(0.9);
+}
+
+.endless-option label {
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    -webkit-app-region: no-drag; /* Make buttons clickable */
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s;
+    min-width: 60px;
+    -webkit-app-region: no-drag;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.primary {
+    background: #BBBDBC;
+    color: #733E24;
+}
+
+.secondary {
+    background: #BBBDBC;
+    color: #733E24;
+}
+
+.status {
+    text-align: center;
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.break-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #BBBDBC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #733E24;
+    animation: fadeIn 0.5s ease;
+    z-index: 100;
+}
+
+.break-message.hidden {
+    display: none;
+}
+
+.break-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.break-content p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#break-timer {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    color: #733E24;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.6s ease-in-out;
+}
+
+#timer-text.pulse {
+    color: #733E24;
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Accessibility enhancements */
+button:focus {
+    outline: 2px solid rgba(115, 62, 36, 0.5);
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(152, 134, 134, 0.5);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(152, 134, 134, 0.7);
+}
